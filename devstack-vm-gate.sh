@@ -112,6 +112,10 @@ EOF
         echo "HEAT_FETCHED_TEST_IMAGE=Fedora-i386-20-20131211.1-sda" >>localrc
     fi
 
+    if [[ "$DEVSTACK_GATE_VIRT_DRIVER" == "libvirt" ]]; then
+        echo "LIBVIRT_TYPE=${LIBVIRT_TYPE:-kvm}" >>localrc
+    fi
+
     if [[ "$DEVSTACK_GATE_VIRT_DRIVER" == "openvz" ]]; then
         echo "SKIP_EXERCISES=${SKIP_EXERCISES},volumes" >>localrc
         echo "DEFAULT_INSTANCE_TYPE=m1.small" >>localrc

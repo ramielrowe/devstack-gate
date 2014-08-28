@@ -312,8 +312,7 @@ export DEVSTACK_GATE_CEILOMETER_BACKEND=${DEVSTACK_GATE_CEILOMETER_BACKEND:-mysq
 if ! function_exists "gate_hook"; then
     # the command we use to run the gate
     function gate_hook {
-        remaining_time
-        timeout -s 9 ${REMAINING_TIME}m $BASE/new/devstack-gate/devstack-vm-gate.sh
+        $BASE/new/devstack-gate/devstack-vm-gate.sh
     }
 fi
 
